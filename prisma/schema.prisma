@@ -24,6 +24,8 @@ model User {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   profileId     Int      @unique
+  reptile Reptile?
+  schedule Schedule?
 }
 
 model Profile {
@@ -33,4 +35,58 @@ model Profile {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   user            User?
+}
+
+model Reptile {
+  id          Int     @id @default(autoincrement())
+  user_id     Int     @unique
+  species     String
+  name        String
+  sex         String
+  created_at  DateTime
+  updated_at  DateTime
+  feeding     Feeding?
+  user        User    @relation(fields: [user_id], references: [id])
+  husbadryRecord Husbandry_Record?
+  schedule Schedule?
+}
+
+model Feeding {
+  id              Int    @id @default(autoincrement())
+  reptile_id      Int     @unique
+  food_item       String
+  created_at      DateTime
+  updated_at      DateTime
+  reptile         Reptile    @relation(fields: [reptile_id], references: [id])
+}
+
+model Husbandry_Record {
+  id              Int    @id @default(autoincrement())
+  reptile_id      Int @unique
+  reptile         Reptile    @relation(fields: [reptile_id], references: [id])
+  length          Float
+  weight          Float
+  temperature     Float
+  humidity        Float
+  created_at      DateTime
+  updated_at      DateTime
+}
+
+model Schedule {
+  id              Int         @id @default(autoincrement())
+  reptile         Reptile     @relation(fields: [reptile_id], references: [id])
+  user            User        @relation(fields: [user_id], references: [id])
+  reptile_id      Int @unique
+  user_id         Int     @unique
+  type            String
+  description     String
+  monday          Boolean
+  tuesday         Boolean
+  wednesday       Boolean
+  thursday        Boolean
+  friday          Boolean
+  saturday        Boolean
+  sunday          Boolean
+  created_at      DateTime
+  updated_at      DateTime
 }
