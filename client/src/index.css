@@ -1,3 +1,56 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+.my-nav{
+
+}
+.main-body{
+  width: 50%;
+  margin: auto;
+}
+.header{
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #343434;
+}
+.footer{
+  margin-top: 30px;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #343434;
+}
+.action-button{
+  padding: 10px;
+  background-color: #343434;
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.reptile-header{
+  font-size: 24px;
+}
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
+}
+.link{
+  color: white;
+}
+.buttons{
+  margin-left: 15px;
+}
+.action-button:hover{
+  background-color: #788AA3;
+  transition: 1s;
+}
