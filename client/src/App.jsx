@@ -4,16 +4,29 @@ import { useSelector } from "react-redux";
 function App() {
   const authToken = useSelector(state => state.application.authToken)
   return (
-    <div>
-      <nav className="my-nav"><h2>App Name</h2>{
+    
+    <div className="container">
+      <div className="header">
+        <nav className="my-nav">{
         !authToken && (
           <>
-            <Link to="/sign_up">Create Account </Link>
-            <Link to="/login">Sign In</Link>
+            <div className="buttons">
+              <Link className="action-button" to="/sign_up">Create Account </Link>
+              <Link className="action-button" to="/login">Sign In</Link>
+            </div>
           </>
         )
-      }</nav>
-      <Outlet />
+        }</nav>
+      </div>
+      <div className="main-body">
+        <h2 className="reptile-header">Really Cool Reptiles</h2>
+        <p>
+          A really cool application that allows you to track the needs of your favorite reptiles
+        </p>
+        <Outlet />
+      </div>
+
+      <div className="footer"></div>
     </div>
   );
 }
